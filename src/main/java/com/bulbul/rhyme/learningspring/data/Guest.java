@@ -33,7 +33,7 @@ public class Guest {
 //    STATE VARCHAR(12),
 //    PHONE_NUMBER VARCHAR(24)
 
-    public long getId() {
+    public long getGuestId() {
         return id;
     }
 
