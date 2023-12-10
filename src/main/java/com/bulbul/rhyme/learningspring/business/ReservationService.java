@@ -59,5 +59,21 @@ public class ReservationService {
         });
         return roomReservations;
     }
+
+    public List<Guest> getHotelGuests(){
+        Iterable<Guest> guests = this.guestRepository.findAll();
+        List<Guest> guestList = new ArrayList<>();
+        guests.forEach(guest->{guestList.add(guest);});
+        guestList.sort(new Comparator<Guest>() {
+            @Override
+            public int compare(Guest guest, Guest t1) {
+                if(guest.getLastName().equals(t1.getLastName())){
+                    return guest.getFirstName().compareTo(t1.getFirstName());
+                }
+                return guest.getLastName().compareTo(t1.getLastName());
+            }
+        });
+        return guestList;
+    }
 }
 
